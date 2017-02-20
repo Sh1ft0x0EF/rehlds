@@ -2,15 +2,20 @@
 
 IReHLDSPlatform* CRehldsPlatformHolder::m_Platform;
 
-IReHLDSPlatform* CRehldsPlatformHolder::get() {
-	if (m_Platform == NULL) {
-		m_Platform = new CSimplePlatform();
-	}
+IReHLDSPlatform* CRehldsPlatformHolder::get()
+{
+	if (m_Platform == NULL)
+		m_Platform = &DefaultPlatform;
 
 	return m_Platform;
 }
 
-void CRehldsPlatformHolder::set(IReHLDSPlatform* p) {
+void CRehldsPlatformHolder::set(IReHLDSPlatform* p)
+{
+	// Free the previously holding impl
+	//if(p == NULL && m_Platform != NULL)
+		//delete m_Platform;
+	
 	m_Platform = p;
 }
 

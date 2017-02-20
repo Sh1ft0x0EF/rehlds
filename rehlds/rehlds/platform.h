@@ -116,7 +116,7 @@ public:
 class CRehldsPlatformHolder {
 private:
 	static IReHLDSPlatform* m_Platform;
-
+	static CSimplePlatform DefaultPlatform;
 public:
 	static IReHLDSPlatform* get();
 	static void set(IReHLDSPlatform* p);
